@@ -19,5 +19,7 @@ no_index:
     - inc
 requires:
   FFI::Me: 0
+  File::Slurp: 0
+  File::Temp: 0
   Test::More: 0
 version: 0.01
