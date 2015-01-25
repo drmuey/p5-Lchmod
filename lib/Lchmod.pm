@@ -2,7 +2,7 @@ package Lchmod;
 
 use strict;
 use warnings;
-use FFI::Me;
+use FFI::Platypus;
 
 $Lchmod::VERSION = '0.02';
 
@@ -30,11 +30,9 @@ sub import {
 {
     local $@;
     eval {                   # 1st: try current process
-        ffi _sys_lchmod => (
-            rv  => ffi::int,
-            arg => [ ffi::str, ffi::int ],
-            sym => 'lchmod',
-        );
+        my $ffi = FFI::Platypus->new;
+        $ffi->lib(undef); # search current process
+        $ffi->attach( [ lchmod => '_sys_lchmod' ] => [ 'string', 'mode_t' ] => 'int' );
     };
     $LCHMOD_AVAILABLE = 1 if !$@;
 }
@@ -157,7 +155,7 @@ Lchmod requires no configuration files or environment variables.
 
 =head1 DEPENDENCIES
 
-L<FFI::Me>
+L<FFI::Platypus>
 
 =head1 INCOMPATIBILITIES
 

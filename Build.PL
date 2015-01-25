@@ -11,7 +11,7 @@ my $builder = Module::Build->new(
         'Test::More'  => 0,    # for testing
         'File::Temp'  => 0,    # for testing
         'File::Slurp' => 0,    # for testing
-        'FFI::Me'     => 0,
+        'FFI::Platypus' => 0.12,
     },
 
     # delete_share => '.', # NYI https://rt.cpan.org/Ticket/Display.html?id=92863

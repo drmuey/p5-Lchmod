@@ -20,7 +20,7 @@ WriteMakefile(
         'Test::More'  => 0,    # for testing
         'File::Temp'  => 0,    # for testing
         'File::Slurp' => 0,    # for testing
-        'FFI::Me'     => 0,
+        'FFI::Platypus' => 12,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES    => 'Lchmod-*' },
